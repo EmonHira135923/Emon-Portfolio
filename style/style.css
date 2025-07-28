@@ -1,0 +1,17 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  font-weight: normal;
+}
+
+/* Color 
+#03fcc6    
+#bff542       
+*/
+
+body {
+  max-width: 1550px;
+  margin: 0 auto;
+}
