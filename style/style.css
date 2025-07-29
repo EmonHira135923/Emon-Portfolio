@@ -18,8 +18,13 @@ button {
   color: white;
 }
 
+img {
+  width: 100%;
+  height: 100%;
+}
+
 /* Nav Var */
-.Nav-Section {
+header {
   max-width: 70rem;
   margin: 0 auto;
 }
@@ -31,7 +36,7 @@ nav {
   align-items: center;
   text-align: center;
   margin-top: 2rem;
-  margin-bottom: 30rem;
+  margin-bottom: 3rem;
   font-size: 1.75rem;
 }
 
@@ -64,12 +69,155 @@ nav {
 .resume-btn:hover,
 .fa-solid:hover {
   color: #03fcc6;
-  transition-delay: 0.5s;
+  transition-delay: 0.1s;
   cursor: pointer;
   border-bottom: 2px solid #03fcc6;
 }
 
 /* Nav var End */
+
+/* Header Start */
+
+.Hero-Section {
+  margin-top: 5rem;
+  margin-bottom: 3rem;
+}
+
+.hero-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 5rem;
+}
+
+.hero-img {
+  height: 27rem;
+  width: 27rem;
+  border-radius: 50%;
+  align-items: center;
+  box-shadow: 0 0 30px #03fcc6;
+  transition: 0.3s ease-in-out;
+}
+
+.hero-img:hover {
+  cursor: pointer;
+  box-shadow: 0 0 90px #03fcc6;
+}
+
+.hero-text,
+h3,
+h4,
+h1,
+p,
+ui,
+list,
+button {
+  margin-top: 0.5rem;
+  margin-bottom: 0.51rem;
+}
+
+.hero-text h3 {
+  font-size: 1.55rem;
+  color: #03fcc6;
+}
+
+.hero-text h1 {
+  font-size: 2.25rem;
+  color: #03fcc6;
+}
+
+.hero-text h4 {
+  font-size: 1.25rem;
+}
+
+.hero-text p {
+  font-size: 1rem;
+  line-height: 2rem;
+  color: #bff542;
+}
+
+.hero-social-icon {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 2rem;
+}
+
+.h-tag {
+  text-decoration: none;
+  color: #03fcc6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #03fcc6;
+  border-radius: 50%;
+  width: 3rem;
+  height: 3rem;
+  padding: 1.5rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  font-weight: bold;
+}
+
+.hero-icon {
+  font-size: 1.75rem;
+}
+
+.h-tag:hover {
+  cursor: pointer;
+  color: white;
+  background-color: #03fcc6;
+  border: 2px solid #03fcc6;
+  font-weight: bold;
+  transition-delay: 0.1s;
+  transition: 0.3s ease-in-out;
+}
+
+.hero-btn {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.h-btn {
+  text-decoration: none;
+  display: inline-block;
+  padding: 1rem 2rem;
+  background-color: #03fcc6;
+  box-shadow: 0 0 25px #03fcc6;
+  border-radius: 4rem;
+  font-size: 1rem;
+  color: black;
+  border: 2px solid #03fcc6;
+  transition: 0.3s ease-in-out;
+  cursor: pointer;
+  font-weight: bold;
+  margin-top: 2rem;
+}
+
+.h-b-tag {
+  box-shadow: none;
+  border: 2px solid #03fcc6;
+  background-color: black;
+  color: #03fcc6;
+}
+
+.h-btn:hover {
+  box-shadow: 0 0 50px #03fcc6;
+  transform: scale(1);
+}
+
+.h-b-tag:hover {
+  background-color: #03fcc6;
+  color: black;
+  transform: scale(1);
+}
+
+/* Header End */
+
+/* Main Section Start */
+
+/* Main Section End */
 
 /* Media Query */
 
@@ -90,6 +238,43 @@ nav {
     justify-content: center;
   }
   /* Nav-Var End */
+
+  /* Header Start */
+
+  .Hero-Section {
+    margin-top: 6rem;
+    margin-bottom: 4rem;
+  }
+
+  .hero-container {
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: center;
+    text-align: left;
+    padding: 1.25rem;
+  }
+
+  .hero-text h3 {
+    font-size: 1.4rem;
+  }
+
+  .hero-text h1 {
+    font-size: 2rem;
+  }
+
+  .hero-text h4 {
+    font-size: 1.1rem;
+  }
+
+  .hero-text p {
+    font-size: 1rem;
+  }
+
+  .hero-icon {
+    font-size: 1.75rem;
+  }
+
+  /* Header End */
 }
 /* Small Device End*/
 
@@ -110,6 +295,43 @@ nav {
     justify-content: center;
   }
   /* Nav Var End */
+
+  /* Header Start */
+
+  .Hero-Section {
+    margin-top: 6rem;
+    margin-bottom: 4rem;
+  }
+
+  .hero-container {
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: center;
+    text-align: left;
+    padding: 1.25rem;
+  }
+
+  .hero-text h3 {
+    font-size: 1.4rem;
+  }
+
+  .hero-text h1 {
+    font-size: 2rem;
+  }
+
+  .hero-text h4 {
+    font-size: 1.1rem;
+  }
+
+  .hero-text p {
+    font-size: 1rem;
+  }
+
+  .hero-icon {
+    font-size: 1.75rem;
+  }
+
+  /* Header End */
 }
 /* Medium Device End */
 
@@ -130,6 +352,23 @@ nav {
     justify-content: center;
   }
   /* Nav Var End */
+
+  /* Header Start */
+
+  .Hero-Section {
+    margin-top: 6rem;
+    margin-bottom: 4rem;
+  }
+
+  .hero-container {
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: center;
+    text-align: left;
+    padding: 1.25rem;
+  }
+
+  /* Header End */
 }
 /* Large Device End */
 
@@ -150,6 +389,35 @@ nav {
     justify-content: center;
   }
   /* Nav Var End */
+
+  nav {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .right-side,
+  .nav-ul-list,
+  .resume-btn {
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+  }
+  /* Nav Var End */
+
+  /* Header Start */
+
+  .Hero-Section {
+    margin-top: 6rem;
+    margin-bottom: 4rem;
+  }
+
+  .hero-container {
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Header End */
 }
 /* Extra Large End */
 
@@ -169,5 +437,15 @@ nav {
     justify-content: center;
   }
   /* Nav Var End */
+
+  /* Header Start */
+
+  .hero-container {
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Header End */
 }
 /* Extra Extra Large End */
