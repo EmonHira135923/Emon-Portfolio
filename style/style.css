@@ -248,15 +248,12 @@ button {
 
   .hero-container {
     flex-direction: column-reverse;
-    align-items: center;
-    justify-content: center;
-    text-align: left;
-    padding: 2rem;
+    padding: 3rem;
   }
 
   .hero-img {
-    height: 20rem;
-    width: 20rem;
+    height: 15rem;
+    width: 15rem;
     justify-content: center;
     align-items: center;
     text-align: center;
