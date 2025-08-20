@@ -222,8 +222,6 @@ button {
 /* Footer Section Start */
 
 footer {
-  max-width: 80rem;
-  margin: 0 auto;
   background-color: #131313;
 }
 
@@ -349,13 +347,7 @@ footer {
   /* Footer start */
 
   footer {
-    max-width: 100rem;
-    margin: 0 auto;
     padding: 2rem 4rem;
-  }
-
-  .Footer-Section {
-    margin-top: 5rem;
   }
 
   .online-judge {
@@ -392,7 +384,7 @@ footer {
   .copyright-issue {
     justify-content: start;
     align-items: start;
-    font-size: 1rem;
+    font-size: 2rem;
     text-align: start;
     flex-direction: column;
   }
