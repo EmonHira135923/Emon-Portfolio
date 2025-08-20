@@ -366,7 +366,7 @@ footer {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    gap: 5rem;
+    gap: 2.5rem;
   }
 
   .C-img {
@@ -377,22 +377,24 @@ footer {
 
   .social-icon {
     display: flex;
-    gap: 3.4rem;
+    gap: 2rem;
   }
 
   .footer-ul {
     font-size: 1.25rem;
-    gap: 2rem;
+    gap: 1rem;
   }
 
   .f-tag {
     margin-bottom: 2rem;
   }
 
-  .f-p {
-    font-size: 0.85rem;
-    padding: 0rem;
-    text-align: left;
+  .copyright-issue {
+    justify-content: start;
+    align-items: start;
+    font-size: 1rem;
+    text-align: start;
+    flex-direction: column;
   }
 
   /* Footer Ended */
