@@ -349,7 +349,7 @@ footer {
   /* Footer start */
 
   footer {
-    padding: 2rem 4rem;
+    padding: 0rem 2rem;
   }
 
   .online-judge {
@@ -384,7 +384,7 @@ footer {
   }
 
   .copyright-issue {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
   }
 
   /* Footer Ended */
