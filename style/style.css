@@ -356,11 +356,12 @@ footer {
     margin-top: 2rem;
   }
 
-  .online-judge {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    gap: 2.5rem;
+  .copyright-issue,
+  .first-child,
+  .second-child,
+  .third-child {
+    justify-content: start;
+    align-items: start;
   }
 
   .C-img {
@@ -384,7 +385,7 @@ footer {
   }
 
   .copyright-issue {
-    font-size: 1.2rem;
+    font-size: 1rem;
   }
 
   /* Footer Ended */
