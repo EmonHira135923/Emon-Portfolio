@@ -56,7 +56,7 @@ const Navvar = () => {
 
       {/* Mobile Menu - Added Solid Background */}
       {isOpen && (
-        <div className="md:hidden absolute top-full left-0 w-full h-screen bg-[#050508] border-b border-white/10 animate-in fade-in slide-in-from-top-2 duration-300 z-50">
+        <div className="md:hidden absolute top-full left-0 w-full min-h-fit bg-[#050508] border-b border-white/10 animate-in fade-in slide-in-from-top-2 duration-300 z-50">
           <div className="flex flex-col p-8 gap-6 items-center">
             <Link
               href="/"
