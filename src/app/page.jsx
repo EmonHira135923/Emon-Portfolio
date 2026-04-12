@@ -1,6 +1,7 @@
 import React from "react";
 import Hero from "../Componets/AllPages/Hero";
 import ContactPage from "../Componets/AllPages/Contact";
+import AboutPage from "../Componets/AllPages/About";
 
 export const metadata = {
   title: "Home | Emon Hossain Hira Portfolio",
@@ -65,6 +66,7 @@ const Home = () => {
   return (
     <div>
       <Hero />
+      <AboutPage />
       <ContactPage />
     </div>
   );

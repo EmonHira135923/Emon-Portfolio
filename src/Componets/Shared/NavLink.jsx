@@ -3,14 +3,17 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-const NavLink = ({ href, children }) => {
+const NavLink = ({ href, children, onClick }) => {
   const pathname = usePathname();
   const isActive = href === "/" ? pathname === "/" : pathname.startsWith(href);
 
   return (
     <Link
       href={href}
-      className={`relative px-4 py-2 text-[13px] font-semibold tracking-wide rounded-lg transition-all duration-200 group
+      onClick={onClick}
+      className={`relative px-3.5 py-2 md:px-4 md:py-2.5 lg:px-5
+        text-[13px] md:text-sm lg:text-[15px]
+        font-semibold tracking-wide rounded-lg transition-all duration-200
         ${
           isActive
             ? "text-white bg-gradient-to-br from-cyan-500/10 to-purple-500/5 border border-cyan-400/20"

@@ -73,7 +73,7 @@ const Footer = () => {
       href: "https://www.hackerrank.com/profile/emonhossainhira1",
       label: "HackerRank",
       hover:
-        "hover:text-yellow-400 hover:border-yellow-400/30 hover:bg-yellow-500/[0.07]",
+        "hover:text-green-400 hover:border-green-400/30 hover:bg-green-500/[0.07]",
     },
   ];
 
@@ -84,6 +84,18 @@ const Footer = () => {
     { href: "/contact", label: "Contact" },
   ];
 
+  const LinkRow = ({ icon, href, label, hover }) => (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={`inline-flex items-center gap-2.5 md:gap-3 px-3 py-2 md:px-4 md:py-2.5 rounded-lg border border-white/[0.07] bg-white/[0.03] text-white/40 transition-all duration-200 w-fit ${hover}`}
+    >
+      <span className="text-base md:text-lg lg:text-xl">{icon}</span>
+      <span className="text-xs md:text-sm font-semibold">{label}</span>
+    </a>
+  );
+
   return (
     <footer className="relative w-full bg-[#050508] overflow-hidden border-t border-white/[0.06]">
       {/* Top glow line */}
@@ -93,45 +105,45 @@ const Footer = () => {
       <div className="absolute inset-0 bg-white/[0.02] backdrop-blur-2xl pointer-events-none" />
 
       {/* Ambient blob */}
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[200px] bg-cyan-500/[0.04] rounded-full blur-[80px] pointer-events-none" />
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[400px] md:w-[700px] h-[180px] bg-cyan-500/[0.04] rounded-full blur-[80px] pointer-events-none" />
 
-      <div className="relative z-10 max-w-6xl mx-auto px-6 md:px-16 pt-14 pb-8">
+      <div className="relative z-10 w-full max-w-[1400px] mx-auto px-6 sm:px-10 md:px-16 lg:px-24 xl:px-32 pt-14 md:pt-20 pb-8 md:pb-10">
         {/* Main grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 pb-10 border-b border-white/[0.06]">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 md:gap-14 pb-10 md:pb-14 border-b border-white/[0.06]">
           {/* Brand */}
-          <div className="space-y-4 sm:col-span-2 lg:col-span-1">
+          <div className="space-y-4 md:space-y-5 sm:col-span-2 lg:col-span-1">
             <Link href="/" className="inline-flex items-baseline">
-              <span className="text-2xl font-black tracking-tighter text-white/90">
+              <span className="text-2xl md:text-3xl font-black tracking-tighter text-white/90">
                 Emon
               </span>
-              <span className="text-2xl font-black tracking-tighter text-cyan-400 drop-shadow-[0_0_10px_rgba(0,200,255,0.5)]">
+              <span className="text-2xl md:text-3xl font-black tracking-tighter text-cyan-400 drop-shadow-[0_0_10px_rgba(0,200,255,0.5)]">
                 .io
               </span>
             </Link>
-            <p className="text-white/30 text-xs leading-relaxed max-w-[200px]">
+            <p className="text-white/30 text-xs md:text-sm leading-relaxed max-w-[200px] md:max-w-[220px]">
               Full Stack Developer crafting fast, modern web experiences.
             </p>
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-cyan-500/20 bg-cyan-500/[0.06]">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 md:px-4 md:py-2 rounded-full border border-cyan-500/20 bg-cyan-500/[0.06]">
               <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
-              <span className="text-[10px] font-bold text-white/50 tracking-widest uppercase">
+              <span className="text-[10px] md:text-xs font-bold text-white/50 tracking-widest uppercase">
                 Available for work
               </span>
             </div>
           </div>
 
           {/* Quick Links */}
-          <div className="space-y-4">
-            <p className="text-[10px] font-bold tracking-[0.2em] uppercase text-white/30">
+          <div className="space-y-4 md:space-y-5">
+            <p className="text-[10px] md:text-xs font-bold tracking-[0.2em] uppercase text-white/30">
               Quick Links
             </p>
-            <ul className="space-y-2.5">
+            <ul className="space-y-3 md:space-y-4">
               {navLinks.map(({ href, label }) => (
                 <li key={href}>
                   <Link
                     href={href}
-                    className="text-white/40 text-sm font-medium hover:text-cyan-400 transition-colors duration-200 flex items-center gap-1.5 group"
+                    className="text-white/40 text-sm md:text-base font-medium hover:text-cyan-400 transition-colors duration-200 flex items-center gap-1.5 md:gap-2 group"
                   >
-                    <span className="w-3 h-px bg-white/20 group-hover:bg-cyan-400/60 group-hover:w-4 transition-all duration-200" />
+                    <span className="w-3 h-px bg-white/20 group-hover:bg-cyan-400/60 group-hover:w-5 transition-all duration-200" />
                     {label}
                   </Link>
                 </li>
@@ -140,54 +152,36 @@ const Footer = () => {
           </div>
 
           {/* Problem Solving */}
-          <div className="space-y-4">
-            <p className="text-[10px] font-bold tracking-[0.2em] uppercase text-white/30">
+          <div className="space-y-4 md:space-y-5">
+            <p className="text-[10px] md:text-xs font-bold tracking-[0.2em] uppercase text-white/30">
               Problem Solving
             </p>
-            <div className="flex flex-col gap-2">
-              {platforms.map(({ icon, href, label, hover }) => (
-                <a
-                  key={label}
-                  href={href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`inline-flex items-center gap-2.5 px-3 py-2 rounded-lg border border-white/[0.07] bg-white/[0.03] text-white/40 text-sm transition-all duration-200 w-fit ${hover}`}
-                >
-                  <span className="text-base">{icon}</span>
-                  <span className="text-xs font-semibold">{label}</span>
-                </a>
+            <div className="flex flex-col gap-2 md:gap-2.5">
+              {platforms.map((p) => (
+                <LinkRow key={p.label} {...p} />
               ))}
             </div>
           </div>
 
           {/* Socials */}
-          <div className="space-y-4">
-            <p className="text-[10px] font-bold tracking-[0.2em] uppercase text-white/30">
+          <div className="space-y-4 md:space-y-5">
+            <p className="text-[10px] md:text-xs font-bold tracking-[0.2em] uppercase text-white/30">
               Social Connect
             </p>
-            <div className="flex flex-col gap-2">
-              {socials.map(({ icon, href, label, hover }) => (
-                <a
-                  key={label}
-                  href={href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`inline-flex items-center gap-2.5 px-3 py-2 rounded-lg border border-white/[0.07] bg-white/[0.03] text-white/40 text-sm transition-all duration-200 w-fit ${hover}`}
-                >
-                  <span className="text-base">{icon}</span>
-                  <span className="text-xs font-semibold">{label}</span>
-                </a>
+            <div className="flex flex-col gap-2 md:gap-2.5">
+              {socials.map((s) => (
+                <LinkRow key={s.label} {...s} />
               ))}
             </div>
           </div>
         </div>
 
         {/* Bottom bar */}
-        <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-3">
-          <p className="text-white/20 text-[11px] tracking-widest uppercase">
+        <div className="pt-6 md:pt-8 flex flex-col sm:flex-row items-center justify-between gap-3">
+          <p className="text-white/20 text-[10px] md:text-[11px] lg:text-xs tracking-widest uppercase">
             &copy; {currentYear} Emon Hossain Hira. All rights reserved.
           </p>
-          <p className="text-white/20 text-[11px] tracking-widest uppercase">
+          <p className="text-white/20 text-[10px] md:text-[11px] lg:text-xs tracking-widest uppercase">
             Built with MERN Stack &bull; Next.js
           </p>
         </div>
