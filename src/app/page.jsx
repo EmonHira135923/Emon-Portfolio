@@ -1,5 +1,6 @@
 import React from "react";
-import Hero from "../Componets/Shared/Hero";
+import Hero from "../Componets/AllPages/Hero";
+import ContactPage from "../Componets/AllPages/Contact";
 
 export const metadata = {
   title: "Home | Emon Hossain Hira Portfolio",
@@ -64,6 +65,7 @@ const Home = () => {
   return (
     <div>
       <Hero />
+      <ContactPage />
     </div>
   );
 };
