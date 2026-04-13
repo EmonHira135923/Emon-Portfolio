@@ -45,6 +45,16 @@ const CategoryHeader = ({ label, accentColor, count }) => {
 // ── Main section ─────────────────────────────────────────────────────────────
 const ProjectsSection = () => {
   const [activeCategory, setActiveCategory] = useState("all");
+  const [projectsPerCategory, setProjectsPerCategory] = useState({});
+
+  // Initialize projects per category to 6
+  useMemo(() => {
+    const initial = {};
+    PROJECT_CATEGORIES.forEach((cat) => {
+      initial[cat.id] = 6;
+    });
+    setProjectsPerCategory(initial);
+  }, []);
 
   // Derive which categories / projects to render
   const visibleCategories = useMemo(() => {
@@ -56,6 +66,14 @@ const ProjectsSection = () => {
     (acc, cat) => acc + cat.projects.length,
     0,
   );
+
+  // Load more projects for a specific category
+  const loadMoreProjects = (categoryId) => {
+    setProjectsPerCategory((prev) => ({
+      ...prev,
+      [categoryId]: prev[categoryId] + 6,
+    }));
+  };
 
   return (
     <section aria-labelledby="projects-heading">
@@ -78,37 +96,51 @@ const ProjectsSection = () => {
 
       {/* Render each visible category group */}
       <div className="space-y-16 md:space-y-20">
-        {visibleCategories.map((category) => (
-          <div key={category.id}>
-            {/* Only show category header when "All" is selected */}
-            {activeCategory === "all" && (
-              <CategoryHeader
-                label={category.label}
-                accentColor={category.accentColor}
-                count={category.projects.length}
-              />
-            )}
+        {visibleCategories.map((category) => {
+          const projectsToShow = projectsPerCategory[category.id] || 6;
+          const currentProjects = category.projects.slice(0, projectsToShow);
+          const hasMoreProjects = category.projects.length > projectsToShow;
 
-            {/* Responsive card grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
-              {category.projects.map((project) => (
-                <ProjectCard
-                  key={project.id}
-                  project={project}
+          return (
+            <div key={category.id}>
+              {/* Only show category header when "All" is selected */}
+              {activeCategory === "all" && (
+                <CategoryHeader
+                  label={category.label}
                   accentColor={category.accentColor}
+                  count={category.projects.length}
                 />
-              ))}
-            </div>
-          </div>
-        ))}
-      </div>
+              )}
 
-      {/* Empty state (future-proof) */}
-      {visibleCategories.length === 0 && (
-        <div className="text-center py-24 text-white/20 text-sm font-mono tracking-widest">
-          No projects in this category yet.
-        </div>
-      )}
+              {/* Responsive card grid */}
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
+                {currentProjects.map((project) => (
+                  <ProjectCard
+                    key={project.id}
+                    project={project}
+                    accentColor={category.accentColor}
+                  />
+                ))}
+              </div>
+
+              {/* Load More Button */}
+              {hasMoreProjects && (
+                <div className="text-center mt-8 md:mt-10">
+                  <button
+                    onClick={() => loadMoreProjects(category.id)}
+                    className="inline-flex items-center gap-3 px-6 py-3 rounded-xl border border-white/[0.08] bg-white/[0.03] text-white/70 hover:text-white hover:border-cyan-400/30 hover:bg-cyan-500/[0.08] transition-all duration-200 group"
+                  >
+                    <span className="text-sm md:text-base font-semibold tracking-wide">
+                      Load More Projects
+                    </span>
+                    <FiGrid className="text-lg group-hover:scale-110 transition-transform duration-200" />
+                  </button>
+                </div>
+              )}
+            </div>
+          );
+        })}
+      </div>
     </section>
   );
 };
