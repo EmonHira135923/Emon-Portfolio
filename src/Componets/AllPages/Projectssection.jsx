@@ -1,0 +1,116 @@
+"use client";
+import { useState, useMemo } from "react";
+import { FiFolder, FiGrid } from "react-icons/fi";
+import { PROJECT_CATEGORIES } from "./Projectsdata";
+import ProjectCard from "./Projectcard";
+import CategoryFilter from "./Categoryfilter";
+
+// ── Reuse the same SectionLabel style as the rest of the About page ────────
+const SectionLabel = ({ icon, text }) => (
+  <div className="flex items-center gap-3 mb-10 md:mb-14">
+    <span className="text-cyan-400 text-xl md:text-2xl">{icon}</span>
+    <span className="text-xs md:text-sm font-bold tracking-[0.25em] uppercase text-white/30">
+      {text}
+    </span>
+    <span className="flex-1 h-px bg-white/[0.06]" />
+  </div>
+);
+
+// ── Category header rendered above each group when showing "All" ──────────
+const CategoryHeader = ({ label, accentColor, count }) => {
+  const dot =
+    {
+      cyan: "bg-cyan-400",
+      purple: "bg-purple-400",
+      green: "bg-green-400",
+      amber: "bg-amber-400",
+    }[accentColor] ?? "bg-cyan-400";
+
+  return (
+    <div className="flex items-center gap-3 mb-6">
+      <span
+        className={`w-2 h-2 rounded-full ${dot} shadow-[0_0_8px_currentColor]`}
+      />
+      <h3 className="text-white/60 text-xs font-bold tracking-[0.2em] uppercase">
+        {label}
+      </h3>
+      <span className="text-white/20 text-xs font-mono">
+        {count} project{count !== 1 ? "s" : ""}
+      </span>
+      <span className="flex-1 h-px bg-white/[0.05]" />
+    </div>
+  );
+};
+
+// ── Main section ─────────────────────────────────────────────────────────────
+const ProjectsSection = () => {
+  const [activeCategory, setActiveCategory] = useState("all");
+
+  // Derive which categories / projects to render
+  const visibleCategories = useMemo(() => {
+    if (activeCategory === "all") return PROJECT_CATEGORIES;
+    return PROJECT_CATEGORIES.filter((c) => c.id === activeCategory);
+  }, [activeCategory]);
+
+  const totalProjects = PROJECT_CATEGORIES.reduce(
+    (acc, cat) => acc + cat.projects.length,
+    0,
+  );
+
+  return (
+    <section aria-labelledby="projects-heading">
+      {/* Section header */}
+      <div className="flex flex-col sm:flex-row sm:items-end gap-4 sm:gap-0 sm:justify-between mb-10 md:mb-14">
+        <SectionLabel icon={<FiFolder />} text="Projects" />
+        <span className="text-white/20 text-xs font-mono tracking-widest self-end mb-[3.5rem] md:mb-[3.75rem]">
+          {totalProjects} projects · {PROJECT_CATEGORIES.length} categories
+        </span>
+      </div>
+
+      {/* Category filter tabs */}
+      <div className="mb-10">
+        <CategoryFilter
+          categories={PROJECT_CATEGORIES}
+          active={activeCategory}
+          onChange={setActiveCategory}
+        />
+      </div>
+
+      {/* Render each visible category group */}
+      <div className="space-y-16 md:space-y-20">
+        {visibleCategories.map((category) => (
+          <div key={category.id}>
+            {/* Only show category header when "All" is selected */}
+            {activeCategory === "all" && (
+              <CategoryHeader
+                label={category.label}
+                accentColor={category.accentColor}
+                count={category.projects.length}
+              />
+            )}
+
+            {/* Responsive card grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
+              {category.projects.map((project) => (
+                <ProjectCard
+                  key={project.id}
+                  project={project}
+                  accentColor={category.accentColor}
+                />
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Empty state (future-proof) */}
+      {visibleCategories.length === 0 && (
+        <div className="text-center py-24 text-white/20 text-sm font-mono tracking-widest">
+          No projects in this category yet.
+        </div>
+      )}
+    </section>
+  );
+};
+
+export default ProjectsSection;

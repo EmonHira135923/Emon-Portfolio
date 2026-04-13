@@ -39,8 +39,11 @@ const Hero = () => {
         }, 35);
         return () => clearTimeout(t);
       } else {
-        setRoleIndex((i) => (i + 1) % ROLES.length);
-        setTyping(true);
+        const t = setTimeout(() => {
+          setRoleIndex((i) => (i + 1) % ROLES.length);
+          setTyping(true);
+        }, 500);
+        return () => clearTimeout(t);
       }
     }
   }, [charIndex, typing, roleIndex]);

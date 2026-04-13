@@ -5,8 +5,10 @@ import {
   FiZap,
   FiCode,
   FiCpu,
+  FiGrid,
 } from "react-icons/fi";
 import SkillsMarquee from "./SkillsMarquee";
+import SkillsOverview from "./SkillsOverview";
 
 /* ── Section label ── */
 const SectionLabel = ({ icon, text }) => (
@@ -53,7 +55,7 @@ const TimelineItem = ({ period, role, org, desc, current }) => (
 );
 
 /* ── Education card ── */
-const EduCard = ({ level, board, gpa, year, status }) => (
+const EduCard = ({ level, board, gpa, year, status, institution }) => (
   <div className="relative p-6 md:p-8 rounded-2xl border border-white/[0.07] bg-white/[0.02] hover:border-cyan-400/20 transition-all duration-200 group overflow-hidden">
     <div className="absolute top-0 right-0 w-28 h-28 bg-cyan-500/[0.04] rounded-full blur-2xl group-hover:bg-cyan-500/[0.08] transition-all" />
     <div className="flex items-start justify-between gap-3">
@@ -64,6 +66,11 @@ const EduCard = ({ level, board, gpa, year, status }) => (
         <p className="text-white/35 text-xs md:text-sm leading-relaxed">
           {board}
         </p>
+        {institution && (
+          <p className="text-cyan-400/70 text-xs md:text-sm font-medium mt-1">
+            {institution}
+          </p>
+        )}
       </div>
       {gpa && (
         <div className="text-right flex-shrink-0">
@@ -144,6 +151,10 @@ const AboutPage = () => {
           </p>
         </div>
 
+        <div>
+          <SkillsOverview />
+        </div>
+
         {/* ── SKILLS MARQUEE ── */}
         <div>
           <SectionLabel icon={<FiCode />} text="Tech Stack & Skills" />
@@ -156,18 +167,21 @@ const AboutPage = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
             <EduCard
               level="SSC"
-              board="Science — General Board"
+              institution="Hazirhat Government Millat Academy"
+              board="Science — Cumilla Board"
               gpa="4.11"
               year="Passed 2020"
             />
             <EduCard
               level="HSC"
-              board="Science — General Board"
+              institution="Government Bangla College"
+              board="Science — Dhaka Board"
               gpa="3.58"
               year="Passed 2023"
             />
             <EduCard
               level="Diploma — CSE"
+              institution="Lakshmipur Polytechnic Institute"
               board="Bangladesh Technical Education Board"
               year="8th Semester Completed"
               status="Result Pending"
