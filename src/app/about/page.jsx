@@ -26,11 +26,11 @@ export const metadata = {
     title: "Emon Hossain Hira | Portfolio",
     description:
       "Explore the portfolio of Emon Hossain Hira, a Full Stack Developer building modern web applications.",
-    url: "https://emon-portfolio-seven.vercel.app/contact",
+    url: "https://emon-portfolio-seven.vercel.app/about",
     siteName: "Emon Portfolio",
     images: [
       {
-        url: "/public/Emon-image.jpeg.png", // 👉 public folder এ image রাখো
+        url: "/Emon-image.jpeg.png", // 👉 public folder এ image রাখো
         width: 1200,
         height: 630,
         alt: "Emon Hossain Hira Portfolio",
@@ -44,7 +44,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "Emon Hossain Hira",
     description: "Full Stack Developer | React & Next.js Specialist",
-    images: ["/public/Emon-image.jpeg.png"],
+    images: ["/Emon-image.jpeg.png"],
   },
 
   icons: {

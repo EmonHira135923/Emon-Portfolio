@@ -32,17 +32,17 @@ export const metadata = {
   creator: "Emon Hossain Hira",
   publisher: "Emon Hossain Hira",
 
-  metadataBase: new URL("https://yourdomain.com"), // 👉 নিজের domain বসাও
+  metadataBase: new URL("https://emon-portfolio-seven.vercel.app"), // 👉 নিজের domain বসাও
 
   openGraph: {
     title: "Emon Hossain Hira | Portfolio",
     description:
       "Explore the portfolio of Emon Hossain Hira, a Full Stack Developer building modern web applications.",
-    url: "https://yourdomain.com",
+    url: "https://emon-portfolio-seven.vercel.app",
     siteName: "Emon Portfolio",
     images: [
       {
-        url: "/og-image.png", // 👉 public folder এ image রাখো
+        url: "/Emon-image.jpeg", // 👉 public folder এ image রাখো
         width: 1200,
         height: 630,
         alt: "Emon Hossain Hira Portfolio",
@@ -56,7 +56,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "Emon Hossain Hira",
     description: "Full Stack Developer | React & Next.js Specialist",
-    images: ["/og-image.png"],
+    images: ["/Emon-image.jpeg"],
   },
 
   icons: {
