@@ -2,24 +2,61 @@ import ContactPage from "@/src/Componets/AllPages/Contact";
 import React from "react";
 
 export const metadata = {
-  title: "Contact | Emon Hossain Hira - Full Stack Developer",
+  title: "Contact | Emon Hossain Hira Portfolio",
   description:
-    "Get in touch with Emon Hossain Hira, a Full Stack Developer specializing in React, Next.js, and modern web development. Let's build something amazing together.",
+    "Get in touch with Emon Hossain Hira, a Full Stack Developer specializing in React, Next.js, and modern web technologies. Explore my portfolio, projects, and skills.",
+
   keywords: [
     "Emon Hossain Hira",
     "Full Stack Developer",
     "React Developer",
     "Next.js Developer",
-    "Portfolio Contact",
-    "Hire Developer",
+    "Frontend Developer",
+    "Web Developer Portfolio",
+    "JavaScript Developer",
   ],
+
+  authors: [{ name: "Emon Hossain Hira" }],
+
+  creator: "Emon Hossain Hira",
+  publisher: "Emon Hossain Hira",
+
+  metadataBase: new URL("https://emon-portfolio-seven.vercel.app/"), // 👉 নিজের domain বসাও
+
   openGraph: {
-    title: "Contact | Emon Hossain Hira - Full Stack Developer",
+    title: "Emon Hossain Hira | Portfolio",
     description:
-      "Contact Emon Hossain Hira for freelance or full-time web development projects using React, Next.js, and modern technologies.",
-    url: "https://yourdomain.com/contact",
-    siteName: "Emon Hossain Hira Portfolio",
+      "Explore the portfolio of Emon Hossain Hira, a Full Stack Developer building modern web applications.",
+    url: "https://emon-portfolio-seven.vercel.app/contact",
+    siteName: "Emon Portfolio",
+    images: [
+      {
+        url: "/public/Emon-image.jpeg.png", // 👉 public folder এ image রাখো
+        width: 1200,
+        height: 630,
+        alt: "Emon Hossain Hira Portfolio",
+      },
+    ],
+    locale: "en_US",
     type: "website",
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "Emon Hossain Hira",
+    description: "Full Stack Developer | React & Next.js Specialist",
+    images: ["/public/Emon-image.jpeg.png"],
+  },
+
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
+  },
+
+  robots: {
+    index: true,
+    follow: true,
   },
 };
 
