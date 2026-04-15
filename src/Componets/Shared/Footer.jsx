@@ -3,6 +3,8 @@ import {
   FaLinkedinIn,
   FaFacebookF,
   FaTwitter,
+  FaWhatsapp,
+  FaFacebookMessenger,
 } from "react-icons/fa";
 import {
   SiCodeforces,
@@ -41,6 +43,20 @@ const Footer = () => {
       icon: <FaTwitter />,
       href: "https://x.com/hira_bd",
       label: "Twitter",
+      hover:
+        "hover:text-cyan-400 hover:border-cyan-400/30 hover:bg-cyan-500/[0.07]",
+    },
+    {
+      icon: <FaWhatsapp />,
+      href: "https://wa.me/8801817516654",
+      label: "WhatsApp",
+      hover:
+        "hover:text-cyan-400 hover:border-cyan-400/30 hover:bg-cyan-500/[0.07]",
+    },
+    {
+      icon: <FaFacebookMessenger />,
+      href: "https://www.facebook.com/messages/t/1504054170712783",
+      label: "Messenger",
       hover:
         "hover:text-cyan-400 hover:border-cyan-400/30 hover:bg-cyan-500/[0.07]",
     },

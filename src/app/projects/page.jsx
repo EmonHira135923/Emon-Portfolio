@@ -56,6 +56,14 @@ export const metadata = {
     index: true,
     follow: true,
   },
+
+  // 👇 Social links / SEO extra data
+  other: {
+    whatsapp: "https://wa.me/8801817516654",
+    messenger: "https://www.facebook.com/messages/t/1504054170712783",
+    youtube: "https://www.youtube.com/channel/UC_8DU_tTTHeCwSMDPPVcfjw",
+    linkedin: "https://www.linkedin.com/in/emon135923/",
+  },
 };
 const ProjectsPage = () => {
   return (

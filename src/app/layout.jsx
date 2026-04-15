@@ -32,7 +32,7 @@ export const metadata = {
   creator: "Emon Hossain Hira",
   publisher: "Emon Hossain Hira",
 
-  metadataBase: new URL("https://emon-portfolio-seven.vercel.app"), // 👉 নিজের domain বসাও
+  metadataBase: new URL("https://emon-portfolio-seven.vercel.app"),
 
   openGraph: {
     title: "Emon Hossain Hira | Portfolio",
@@ -42,7 +42,7 @@ export const metadata = {
     siteName: "Emon Portfolio",
     images: [
       {
-        url: "https://i.ibb.co.com/bjLbt66j/Emon-image.jpg", // 👉 public folder এ image রাখো
+        url: "https://i.ibb.co.com/bjLbt66j/Emon-image.jpg",
         width: 1200,
         height: 630,
         alt: "Emon Hossain Hira Portfolio",
@@ -68,6 +68,14 @@ export const metadata = {
   robots: {
     index: true,
     follow: true,
+  },
+
+  // 👇 Social links / SEO extra data
+  other: {
+    whatsapp: "https://wa.me/8801817516654",
+    messenger: "https://www.facebook.com/messages/t/1504054170712783",
+    youtube: "https://www.youtube.com/channel/UC_8DU_tTTHeCwSMDPPVcfjw",
+    linkedin: "https://www.linkedin.com/in/emon135923/",
   },
 };
 
