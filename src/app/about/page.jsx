@@ -1,9 +1,9 @@
 import AboutPage from "@/src/Componets/AllPages/About";
 import React from "react";
 export const metadata = {
-  title: "Contact | Emon Hossain Hira Portfolio",
+  title: "About | Emon Hossain Hira Portfolio",
   description:
-    "Get in touch with Emon Hossain Hira, a Full Stack Developer specializing in React, Next.js, and modern web technologies. Explore my portfolio, projects, and skills.",
+    "Learn more about Emon Hossain Hira, a Full Stack Developer specializing in React, Next.js, and modern web technologies. Explore my portfolio, projects, and skills.",
 
   keywords: [
     "Emon Hossain Hira",
@@ -30,7 +30,7 @@ export const metadata = {
     siteName: "Emon Portfolio",
     images: [
       {
-        url: "/Emon-image.jpeg.png", // 👉 public folder এ image রাখো
+        url: "https://i.ibb.co.com/bjLbt66j/Emon-image.jpg", // 👉 public folder এ image রাখো
         width: 1200,
         height: 630,
         alt: "Emon Hossain Hira Portfolio",
@@ -44,7 +44,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "Emon Hossain Hira",
     description: "Full Stack Developer | React & Next.js Specialist",
-    images: ["/Emon-image.jpeg.png"],
+    images: ["https://i.ibb.co.com/bjLbt66j/Emon-image.jpg"],
   },
 
   icons: {

@@ -31,7 +31,7 @@ export const metadata = {
     siteName: "Emon Portfolio",
     images: [
       {
-        url: "/Emon-image.jpeg.png", // 👉 public folder এ image রাখো
+        url: "https://i.ibb.co.com/bjLbt66j/Emon-image.jpg", // 👉 public folder এ image রাখো
         width: 1200,
         height: 630,
         alt: "Emon Hossain Hira Portfolio",
@@ -45,7 +45,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "Emon Hossain Hira",
     description: "Full Stack Developer | React & Next.js Specialist",
-    images: ["/Emon-image.jpeg.png"],
+    images: ["https://i.ibb.co.com/bjLbt66j/Emon-image.jpg"],
   },
 
   icons: {

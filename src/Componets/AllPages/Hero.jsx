@@ -155,7 +155,7 @@ const Hero = () => {
           {/* Photo */}
           <div className="relative w-40 h-40 sm:w-52 sm:h-52 md:w-64 md:h-64 lg:w-72 lg:h-72 xl:w-80 xl:h-80 rounded-full overflow-hidden border-2 border-white/[0.08] shadow-[0_0_80px_rgba(0,200,255,0.12)]">
             <Image
-              src="/Emon-image.jpeg"
+              src="https://i.ibb.co.com/bjLbt66j/Emon-image.jpg"
               alt="Emon Hossain Hira"
               fill
               className="object-cover object-top scale-105"
