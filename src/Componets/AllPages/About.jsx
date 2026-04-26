@@ -5,10 +5,24 @@ import {
   FiZap,
   FiCode,
   FiCpu,
-  FiGrid,
 } from "react-icons/fi";
 import SkillsMarquee from "./SkillsMarquee";
 import SkillsOverview from "./SkillsOverview";
+
+/* ── Duration calculator ── */
+function calcDuration(start, end = new Date()) {
+  const totalDays = Math.floor((end - start) / (1000 * 60 * 60 * 24));
+  const months = Math.floor(totalDays / 30.44);
+  return { months, days: totalDays };
+}
+
+function formatDate(d) {
+  return d.toLocaleDateString("en-GB", {
+    day: "numeric",
+    month: "short",
+    year: "numeric",
+  });
+}
 
 /* ── Section label ── */
 const SectionLabel = ({ icon, text }) => (
@@ -22,37 +36,46 @@ const SectionLabel = ({ icon, text }) => (
 );
 
 /* ── Timeline item ── */
-const TimelineItem = ({ period, role, org, desc, current }) => (
-  <div className="relative pl-7 md:pl-10 border-l border-white/[0.08] pb-10 last:pb-0">
-    <span
-      className={`
-      absolute -left-[6px] top-1.5 w-3 h-3 md:w-3.5 md:h-3.5 rounded-full border-2
-      ${
-        current
-          ? "bg-cyan-400 border-cyan-400 shadow-[0_0_14px_rgba(0,200,255,0.7)]"
-          : "bg-[#050508] border-white/20"
-      }
-    `}
-    />
-    <div className="flex flex-wrap items-center gap-2 mb-2">
-      <span className="text-xs md:text-sm font-bold tracking-widest uppercase text-white/25 font-mono">
-        {period}
-      </span>
-      {current && (
-        <span className="px-2.5 py-0.5 rounded-full bg-cyan-500/10 border border-cyan-400/20 text-cyan-400 text-[10px] md:text-xs font-bold tracking-widest uppercase">
-          Current
+const TimelineItem = ({ joinDate, endDate, role, org, desc, current }) => {
+  const { months, days } = calcDuration(joinDate, endDate ?? new Date());
+  const period = `${formatDate(joinDate)} — ${current ? "Present" : formatDate(endDate)}`;
+  const label = `${months} month${months !== 1 ? "s" : ""} · ${days} days`;
+
+  return (
+    <div className="relative pl-7 md:pl-10 border-l border-white/[0.08] pb-10 last:pb-0">
+      <span
+        className={`absolute -left-[6px] top-1.5 w-3 h-3 md:w-3.5 md:h-3.5 rounded-full border-2
+        ${
+          current
+            ? "bg-cyan-400 border-cyan-400 shadow-[0_0_14px_rgba(0,200,255,0.7)]"
+            : "bg-[#050508] border-white/20"
+        }`}
+      />
+      <div className="flex flex-wrap items-center gap-2 mb-2">
+        <span className="text-xs md:text-sm font-bold tracking-widest uppercase text-white/25 font-mono">
+          {period}
         </span>
-      )}
+        {current && (
+          <span className="px-2.5 py-0.5 rounded-full bg-cyan-500/10 border border-cyan-400/20 text-cyan-400 text-[10px] md:text-xs font-bold tracking-widest uppercase">
+            Running
+          </span>
+        )}
+      </div>
+      <h3 className="text-white font-bold text-base md:text-xl mb-0.5">
+        {role}
+      </h3>
+      <p className="text-cyan-400/80 text-sm md:text-base font-semibold mb-1">
+        {org}
+      </p>
+      <p className="text-white/30 text-xs font-mono mb-3 tracking-wide">
+        {label}
+      </p>
+      <p className="text-white/35 text-sm md:text-[15px] leading-relaxed max-w-2xl">
+        {desc}
+      </p>
     </div>
-    <h3 className="text-white font-bold text-base md:text-xl mb-0.5">{role}</h3>
-    <p className="text-cyan-400/80 text-sm md:text-base font-semibold mb-3">
-      {org}
-    </p>
-    <p className="text-white/35 text-sm md:text-[15px] leading-relaxed max-w-2xl">
-      {desc}
-    </p>
-  </div>
-);
+  );
+};
 
 /* ── Education card ── */
 const EduCard = ({ level, board, gpa, year, status, institution }) => (
@@ -146,11 +169,33 @@ const AboutPage = () => {
             while actively advancing my full-stack skills in Node.js, MongoDB,
             Laravel, and Firebase. Currently working at{" "}
             <span className="text-cyan-400 font-semibold">Omni Katalyst</span>{" "}
-            with 5 months of professional experience. Fast learner, problem
-            solver, and driven to build impactful real-world projects.
+            with professional experience. Fast learner, problem solver, and
+            driven to build impactful real-world projects.
           </p>
         </div>
 
+        {/* ── EXPERIENCE ── */}
+        <div>
+          <SectionLabel icon={<FiBriefcase />} text="Experience" />
+          <div>
+            <TimelineItem
+              joinDate={new Date(2025, 11, 15)}
+              current
+              role="Full Stack Developer"
+              org="Omni Katalyst"
+              desc="Working on real-world React and Node.js projects. Involved in product development, feature building, and gaining hands-on professional experience in a team environment."
+            />
+            <TimelineItem
+              joinDate={new Date(2025, 10, 8)}
+              endDate={new Date(2025, 11, 11)}
+              role="Frontend Intern"
+              org="Ragory"
+              desc="Completed a 1-month internship gaining real-world industry exposure — working on UI components, collaborative workflows, and professional development practices."
+            />
+          </div>
+        </div>
+
+        {/* ── SKILLS OVERVIEW ── */}
         <div>
           <SkillsOverview />
         </div>
@@ -185,26 +230,6 @@ const AboutPage = () => {
               board="Bangladesh Technical Education Board"
               year="8th Semester Completed"
               status="Result Pending"
-            />
-          </div>
-        </div>
-
-        {/* ── EXPERIENCE ── */}
-        <div>
-          <SectionLabel icon={<FiBriefcase />} text="Experience" />
-          <div>
-            <TimelineItem
-              period="2024 — Present · 5 months"
-              role="Full Stack Developer"
-              org="Omni Katalyst"
-              desc="Working on real-world React and Node.js projects. Involved in product development, feature building, and gaining hands-on professional experience in a team environment."
-              current
-            />
-            <TimelineItem
-              period="2024 · 1 Month"
-              role="Frontend Intern"
-              org="Ragory"
-              desc="Completed a 1-month internship gaining real-world industry exposure — working on UI components, collaborative workflows, and professional development practices."
             />
           </div>
         </div>
