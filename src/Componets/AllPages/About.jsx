@@ -234,7 +234,7 @@ const AboutPage = () => {
             <EduCard
               level="B.Sc. — CSE"
               institution="Bangladesh University of Business and Technology (BUBT)"
-              board="Bangladesh University"
+              board="University Grants Commission of Bangladesh"
               status="Ongoing"
               year="1st Year - Running"
             />
