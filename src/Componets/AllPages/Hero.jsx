@@ -78,7 +78,7 @@ const Hero = () => {
               <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-400" />
             </span>
             <span className="text-cyan-400 text-[10px] sm:text-[11px] md:text-xs font-bold tracking-[0.18em] uppercase">
-              Open to Work — Omni Katalyst
+              Open to Work
             </span>
           </div>
 
