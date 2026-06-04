@@ -180,7 +180,7 @@ const AboutPage = () => {
           <div>
             <TimelineItem
               joinDate={new Date(2025, 11, 15)}
-              current
+              endDate={new Date(2026, 4, 31)}
               role="Full Stack Developer"
               org="Omni Katalyst"
               desc="Working on real-world React and Node.js projects. Involved in product development, feature building, and gaining hands-on professional experience in a team environment."
@@ -228,8 +228,15 @@ const AboutPage = () => {
               level="Diploma — CSE"
               institution="Lakshmipur Polytechnic Institute"
               board="Bangladesh Technical Education Board"
-              year="8th Semester Completed"
-              status="Result Pending"
+              gpa="2.72"
+              year="Passed 2026"
+            />
+            <EduCard
+              level="B.Sc. — CSE"
+              institution="Bangladesh University of Business and Technology (BUBT)"
+              board="Bangladesh University"
+              status="Ongoing"
+              year="1st Year - Running"
             />
           </div>
         </div>
