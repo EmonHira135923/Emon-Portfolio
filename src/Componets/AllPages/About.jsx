@@ -159,18 +159,19 @@ const AboutPage = () => {
             </span>
           </h1>
           <p className="text-white/30 text-base md:text-lg font-semibold tracking-wide">
-            Full Stack Developer &nbsp;·&nbsp; Diploma in CSE &nbsp;·&nbsp;
-            Future AI/ML Engineer
+            Full Stack Developer &nbsp;·&nbsp; Diploma in CSE &nbsp;·&nbsp; Bsc
+            in CSE &nbsp;·&nbsp; Future AI/ML Engineer
           </p>
           <p className="text-white/40 text-base md:text-lg lg:text-xl leading-[1.9] max-w-3xl">
-            I'm a Diploma student in Computer Science & Technology with a strong
-            foundation in C, C++, Python, and core Data Structures. I work with
-            modern web technologies including JavaScript, React, and Next.js,
-            while actively advancing my full-stack skills in Node.js, MongoDB,
-            Laravel, and Firebase. Currently working at{" "}
-            <span className="text-cyan-400 font-semibold">Omni Katalyst</span>{" "}
-            with professional experience. Fast learner, problem solver, and
-            driven to build impactful real-world projects.
+            I'm currently a B.Sc student in Computer Science & Technology with a
+            strong foundation in C, C++, Python, and core Data Structures. I
+            work with modern web technologies including JavaScript, React, and
+            Next.js, while actively advancing my full-stack skills in Node.js,
+            MongoDB, Laravel, and Firebase. I have real-world experience from
+            internships and projects, and I'm driven to build impactful
+            solutions that solve real-world problems. with professional
+            experience. Fast learner, problem solver, and driven to build
+            impactful real-world projects.
           </p>
         </div>
 
