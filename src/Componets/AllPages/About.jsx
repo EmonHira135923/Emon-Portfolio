@@ -215,29 +215,25 @@ const AboutPage = () => {
               level="SSC"
               institution="Hazirhat Government Millat Academy"
               board="Science — Cumilla Board"
-              gpa="4.11"
               year="Passed 2020"
             />
             <EduCard
               level="HSC"
               institution="Government Bangla College"
               board="Science — Dhaka Board"
-              gpa="3.58"
               year="Passed 2023"
             />
             <EduCard
               level="Diploma — CSE"
               institution="Lakshmipur Polytechnic Institute"
               board="Bangladesh Technical Education Board"
-              gpa="2.72"
               year="Passed 2026"
             />
             <EduCard
               level="B.Sc. — CSE"
               institution="Bangladesh University of Business and Technology (BUBT)"
               board="University Grants Commission of Bangladesh"
-              status="Ongoing"
-              year="1st Year - Running"
+              year="2026-2030(Expected)"
             />
           </div>
         </div>
