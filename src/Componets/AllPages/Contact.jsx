@@ -1,5 +1,5 @@
 "use client";
-
+import emailjs from "@emailjs/browser";
 import { useState } from "react";
 import {
   FiMail,
@@ -8,6 +8,7 @@ import {
   FiMessageSquare,
   FiSend,
 } from "react-icons/fi";
+import { toast } from "react-toastify";
 
 const ContactPage = () => {
   const [form, setForm] = useState({
@@ -24,10 +25,48 @@ const ContactPage = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    // শুধু স্পেস দিয়ে সাবমিট করা আটকানোর জন্য ভ্যালিডেশন
+    if (!form.name.trim() || !form.email.trim() || !form.message.trim()) {
+      toast.error("Please fill out all required fields.");
+      return;
+    }
+
     setLoading(true);
-    await new Promise((r) => setTimeout(r, 1200)); // replace with real API
-    setLoading(false);
-    setSubmitted(true);
+
+    try {
+      await emailjs.send(
+        "service_zu3sn9l", // আপনার EmailJS সার্ভিস আইডি
+        "template_w80mlsp", // আপনার EmailJS টেমপ্লেট আইডি
+        {
+          name: form.name.trim(),
+          email: form.email.trim(),
+          phone: form.phone.trim(),
+          message: form.message.trim(),
+          time: new Date().toLocaleString(),
+        },
+        "4D5Z7WuPVxzVa8Cho", // your public key
+      );
+
+      toast.success("Message sent successfully!");
+      setSubmitted(true);
+      setForm({
+        name: "",
+        email: "",
+        phone: "",
+        message: "",
+      });
+    } catch (error) {
+      console.error("Email sending failed:", error);
+      toast.error("Failed to send message. Please try again.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleReset = () => {
+    setSubmitted(false);
+    setForm({ name: "", email: "", phone: "", message: "" });
   };
 
   const inputClass =
@@ -35,11 +74,11 @@ const ContactPage = () => {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center bg-[#050508] overflow-hidden px-4 sm:px-6 py-20 md:py-32">
-      {/* Blobs */}
+      {/* Background Blobs */}
       <div className="absolute top-[-5%] left-[-10%] w-[300px] md:w-[560px] h-[300px] md:h-[560px] bg-cyan-500/[0.06] rounded-full blur-[90px] md:blur-[140px] pointer-events-none" />
       <div className="absolute bottom-[-5%] right-[-10%] w-[260px] md:w-[480px] h-[260px] md:h-[480px] bg-purple-600/[0.06] rounded-full blur-[80px] md:blur-[130px] pointer-events-none" />
 
-      {/* Dot grid */}
+      {/* Dot grid background */}
       <div
         className="absolute inset-0 pointer-events-none opacity-[0.13]"
         style={{
@@ -50,7 +89,7 @@ const ContactPage = () => {
       />
 
       <div className="relative z-10 w-full max-w-xl lg:max-w-2xl mx-auto">
-        {/* Header */}
+        {/* Header Section */}
         <div className="mb-10 md:mb-14 space-y-3 md:space-y-4">
           <p className="text-cyan-400 text-[10px] sm:text-xs md:text-sm font-bold tracking-[0.25em] uppercase">
             Get In Touch
@@ -67,14 +106,15 @@ const ContactPage = () => {
           </p>
         </div>
 
-        {/* Glass Card */}
+        {/* Glassmorphism Card */}
         <div className="relative rounded-2xl border border-white/[0.08] bg-white/[0.03] backdrop-blur-2xl shadow-[0_8px_56px_rgba(0,0,0,0.5),inset_0_1px_0_rgba(255,255,255,0.04)] p-6 sm:p-8 md:p-10 lg:p-12">
-          {/* Top glow line */}
+          {/* Top subtle glow line */}
           <div className="absolute top-0 left-1/4 right-1/4 h-px bg-gradient-to-r from-transparent via-cyan-400/40 to-transparent" />
 
           {submitted ? (
+            /* Success Message View */
             <div className="flex flex-col items-center justify-center py-12 md:py-20 space-y-5 text-center">
-              <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-cyan-500/10 border border-cyan-400/20 flex items-center justify-center">
+              <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-cyan-500/10 border border-cyan-400/20 flex items-center justify-center animate-bounce">
                 <FiSend className="text-cyan-400 text-xl md:text-3xl" />
               </div>
               <h3 className="text-white font-black text-2xl md:text-3xl">
@@ -85,18 +125,16 @@ const ContactPage = () => {
                 possible.
               </p>
               <button
-                onClick={() => {
-                  setSubmitted(false);
-                  setForm({ name: "", email: "", phone: "", message: "" });
-                }}
-                className="mt-1 text-cyan-400 text-sm md:text-base font-semibold hover:text-cyan-300 transition-colors"
+                onClick={handleReset}
+                className="mt-1 text-cyan-400 text-sm md:text-base font-semibold hover:text-cyan-300 transition-colors focus:outline-none"
               >
                 Send another message →
               </button>
             </div>
           ) : (
+            /* Contact Form View */
             <form onSubmit={handleSubmit} className="space-y-5 md:space-y-6">
-              {/* Name */}
+              {/* Name Input */}
               <div className="space-y-2">
                 <label className="text-white/45 text-[10px] sm:text-xs md:text-sm font-bold tracking-widest uppercase flex items-center gap-1.5">
                   <FiUser className="text-cyan-400/70 text-sm md:text-base" />{" "}
@@ -113,8 +151,9 @@ const ContactPage = () => {
                 />
               </div>
 
-              {/* Email + Phone */}
+              {/* Email & Phone Grid */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-5">
+                {/* Email */}
                 <div className="space-y-2">
                   <label className="text-white/45 text-[10px] sm:text-xs md:text-sm font-bold tracking-widest uppercase flex items-center gap-1.5">
                     <FiMail className="text-cyan-400/70 text-sm md:text-base" />{" "}
@@ -130,10 +169,11 @@ const ContactPage = () => {
                     className={inputClass}
                   />
                 </div>
+                {/* Phone */}
                 <div className="space-y-2">
                   <label className="text-white/45 text-[10px] sm:text-xs md:text-sm font-bold tracking-widest uppercase flex items-center gap-1.5">
                     <FiPhone className="text-cyan-400/70 text-sm md:text-base" />{" "}
-                    Phone
+                    Phone (Optional)
                   </label>
                   <input
                     type="tel"
@@ -146,7 +186,7 @@ const ContactPage = () => {
                 </div>
               </div>
 
-              {/* Message */}
+              {/* Message Textarea */}
               <div className="space-y-2">
                 <label className="text-white/45 text-[10px] sm:text-xs md:text-sm font-bold tracking-widest uppercase flex items-center gap-1.5">
                   <FiMessageSquare className="text-cyan-400/70 text-sm md:text-base" />{" "}
@@ -163,11 +203,11 @@ const ContactPage = () => {
                 />
               </div>
 
-              {/* Submit */}
+              {/* Submit Button */}
               <button
                 type="submit"
                 disabled={loading}
-                className="w-full flex items-center justify-center gap-2.5 px-6 py-3.5 md:py-4 rounded-xl bg-gradient-to-r from-cyan-500 to-purple-500 text-white text-sm md:text-base lg:text-lg font-bold hover:shadow-[0_0_32px_rgba(0,200,255,0.25)] hover:opacity-90 active:scale-[0.98] disabled:opacity-60 disabled:cursor-not-allowed transition-all duration-200"
+                className="w-full flex items-center justify-center gap-2.5 px-6 py-3.5 md:py-4 rounded-xl bg-gradient-to-r from-cyan-500 to-purple-500 text-white text-sm md:text-base lg:text-lg font-bold hover:shadow-[0_0_32px_rgba(0,200,255,0.25)] hover:opacity-90 active:scale-[0.98] disabled:opacity-60 disabled:cursor-not-allowed transition-all duration-200 focus:outline-none"
               >
                 {loading ? (
                   <div className="h-5 w-5 md:h-6 md:w-6 border-2 border-white/30 border-t-white rounded-full animate-spin" />

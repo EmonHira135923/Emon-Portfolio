@@ -2,6 +2,7 @@ import { Roboto } from "next/font/google";
 import "./globals.css";
 import Header from "../Componets/Shared/Header";
 import Footer from "../Componets/Shared/Footer";
+import { ToastContainer } from "react-toastify";
 
 const roboto = Roboto({
   weight: ["100", "200", "400", "700"],
@@ -84,6 +85,7 @@ export default function RootLayout({ children }) {
     <html lang="en" className={`${roboto.className} h-full antialiased`}>
       <body className="min-h-full flex flex-col">
         <Header />
+        <ToastContainer position="top-right" autoClose={3000} theme="dark" />
         {children}
         <Footer />
       </body>
