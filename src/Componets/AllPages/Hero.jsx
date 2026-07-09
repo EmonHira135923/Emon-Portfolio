@@ -128,8 +128,8 @@ const Hero = () => {
             </Link>
 
             <Link
-              href="https://discordapp.com/channels/@me/1524804206936985680/1524804218106675431"
-              download="https://discordapp.com/channels/@me/1524804206936985680/1524804218106675431"
+              target={"_blank"}
+              href="https://drive.google.com/file/d/1MYyRZlJF-cVbMxxh8Sp2nJSKdBg-Fdba/view?usp=sharing"
               rel="noopener noreferrer"
               className="px-6 py-2.5 sm:px-7 sm:py-3 md:px-8 md:py-3.5 rounded-xl border border-white/10 bg-white/[0.03] text-white/60 text-sm sm:text-base md:text-[17px] font-bold hover:border-cyan-400/25 hover:text-white hover:bg-white/[0.06] transition-all duration-200"
             >
