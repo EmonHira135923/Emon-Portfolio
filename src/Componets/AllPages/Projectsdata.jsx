@@ -7,6 +7,216 @@ export const PROJECT_CATEGORIES = [
     projects: [
       {
         id: "fs-01",
+        title: "The Daily Jhalokathi – Modern Bengali News Portal",
+        shortDescription:
+          "A full-stack modern Bengali news portal built with Next.js 16, React 19, and MongoDB featuring real-time breaking news, secure authentication, and a complete admin dashboard.",
+        fullDescription:
+          "The Daily Jhalokathi is a modern full-stack Bengali news platform designed to deliver news content through a fast, secure, and scalable digital experience. The platform provides a public news portal where users can explore latest news, categories, breaking news updates, detailed articles, comments, and replies. It also includes a powerful admin dashboard for managing news articles, users, comments, replies, and contact messages with secure JWT-based authentication and role-based access control.",
+        image: "https://i.ibb.co.com/F4zGvdPM/The-Daily-Jhalokathi.webp",
+        featured: true,
+        techStack: [
+          "Next.js 16",
+          "React 19",
+          "MongoDB",
+          "Tailwind CSS 4",
+          "DaisyUI",
+          "JWT Authentication",
+          "Jose",
+          "bcrypt",
+          "Cloudinary",
+          "Axios",
+          "React Icons",
+        ],
+        features: [
+          "Modern Bengali news publishing platform",
+          "Public homepage with latest news and category filtering",
+          "Real-time breaking news ticker",
+          "News details page with related news",
+          "Social sharing functionality",
+          "Comment and reply system",
+          "JWT authentication with access and refresh tokens",
+          "HTTP-only cookie based secure authentication",
+          "Role-based admin access control",
+          "Complete admin dashboard",
+          "News CRUD management system",
+          "User management system",
+          "Comment and reply moderation",
+          "Contact message management",
+          "Cloudinary image upload integration",
+          "Live weather widget integration",
+        ],
+        roles: [
+          "Admin: Manage news articles, breaking news, users, comments, replies, and contact messages",
+          "User: Read news, create comments, reply to discussions, and submit contact messages",
+        ],
+        architecture:
+          "Built with Next.js App Router architecture where frontend pages and backend API routes are handled in a single full-stack application. Public APIs provide optimized DTO responses while protected admin APIs handle complete data operations.",
+        authentication:
+          "Implemented secure JWT authentication using accessToken and refreshToken stored in HTTP-only cookies. Middleware validates protected routes and automatically refreshes expired access tokens.",
+        security:
+          "Public users only access filtered DTO-based APIs while sensitive operations are protected through JWT verification and admin authorization checks.",
+        database: [
+          "Users collection - User accounts, roles, authentication information",
+          "News collection - Articles, categories, images, timestamps, and content",
+          "Comments collection - User comments and discussion data",
+          "Replies collection - Nested comment reply system",
+          "Contacts collection - User contact messages",
+          "Breaking News collection - Homepage breaking news ticker content",
+        ],
+        apiFeatures: [
+          "Public news API with optimized response data",
+          "Admin-only news CRUD APIs",
+          "Breaking news management APIs",
+          "Protected comment and reply APIs",
+          "Secure contact management APIs",
+        ],
+        additionalServices: [
+          "Cloudinary for image hosting",
+          "OpenWeatherMap API for weather widget",
+          "bcrypt for password hashing",
+        ],
+        githubLink: "https://github.com/EmonHira135923/The-Daily-Jhalokathi",
+        liveLink: "https://the-daily-jhalokathi.vercel.app/",
+      },
+      {
+        id: "fs-02",
+        title: "Contest Hub Platform – Full-Stack Contest Management System",
+        shortDescription:
+          "A full-stack contest management platform where creators publish contests, users participate and submit entries, and admins manage the entire platform through role-based dashboards.",
+        fullDescription:
+          "Contest Hub Platform is a modern full-stack contest management system built with Next.js App Router. The platform connects contest creators, participants, and administrators through dedicated workflows. Creators can publish contests, manage submissions, and declare winners, while users can browse contests, join paid competitions, submit assignments, and track their performance. Admins have complete control over users, contests, creators, and platform moderation through a powerful dashboard.",
+        image: "https://i.ibb.co.com/JRyzWs6b/Contest-Hub-Platform.webp",
+        featured: true,
+        techStack: [
+          "Next.js",
+          "React 19",
+          "Tailwind CSS v4",
+          "MongoDB",
+          "Node.js",
+          "NextAuth",
+          "JWT Authentication",
+          "Stripe",
+          "Cloudinary",
+          "Nodemailer",
+          "React Query",
+          "Recharts",
+          "Framer Motion",
+          "React Hook Form",
+          "Axios",
+          "DaisyUI",
+        ],
+        features: [
+          "Role-based authentication system",
+          "Admin, Creator, and User dashboards",
+          "Contest creation and approval workflow",
+          "Public contest browsing, search, and filtering",
+          "Stripe-powered paid contest participation",
+          "Assignment submission system",
+          "Winner declaration workflow",
+          "Contest analytics dashboard",
+          "User participation statistics",
+          "Creator performance tracking",
+          "Admin user and contest management",
+          "Google and GitHub social login",
+          "JWT access and refresh token authentication",
+          "Cloudinary image upload integration",
+          "Nodemailer invitation email system",
+          "Responsive modern UI",
+        ],
+        roles: [
+          "User: Browse contests, join competitions, make payments, submit assignments, and view participation history",
+          "Creator: Create contests, manage own contests, review submissions, and declare winners",
+          "Admin: Manage users, approve/reject creator contests, manage creators, invitations, and platform activities",
+        ],
+        architecture:
+          "Built using Next.js App Router with frontend pages, backend API routes, authentication logic, and database utilities inside a single full-stack application. Shared components, hooks, and providers handle reusable UI and application state management.",
+        authentication:
+          "Implemented hybrid authentication using NextAuth for Google/GitHub OAuth and custom JWT authentication with access and refresh tokens stored in HTTP-only cookies. Middleware validates protected routes and applies role-based authorization.",
+        contestWorkflow:
+          "Creator creates a contest → Admin reviews and approves → Contest becomes publicly available → Users participate through Stripe payment → Users submit assignments → Creator reviews submissions → Winner is declared and contest status is updated.",
+        database: [
+          "Users collection - User accounts, roles, profile information, OAuth provider data",
+          "Contests collection - Contest details, creator information, prizes, deadlines, and status",
+          "Payments collection - Payment records, submission status, and winner information",
+        ],
+        security: [
+          "JWT authentication with HTTP-only cookies",
+          "Role-based access control using middleware",
+          "Protected admin and creator routes",
+          "NextAuth secure session management",
+          "Password hashing using bcrypt",
+          "Invitation tokens with expiration handling",
+          "Server-side session validation",
+        ],
+        payment:
+          "Integrated Stripe checkout system for secure contest participation payments with payment tracking and winner status management.",
+        analytics:
+          "Implemented role-specific analytics dashboards with Recharts-powered charts for admin platform statistics and creator performance insights.",
+        githubLink: "https://github.com/EmonHira135923/Contest-Hub-Platform",
+        liveLink: "https://contest-hub-platform.vercel.app/",
+      },
+      {
+        id: "fs-03",
+        title: "ZapShift – Parcel Delivery & Courier Management Platform",
+        shortDescription:
+          "A full-stack parcel delivery management platform for booking, tracking, and managing courier operations with dedicated workflows for users, riders, and admins.",
+        fullDescription:
+          "ZapShift is a modern full-stack Next.js application that digitizes parcel delivery operations. It provides a complete workflow where users can book parcels, make secure payments, track deliveries, riders can manage delivery tasks, and admins can control the entire courier ecosystem. The platform includes role-based access control, JWT authentication, NextAuth social login, Stripe payment integration, Cloudinary image management, and real-time tracking logs.",
+        image: "https://i.ibb.co.com/cc02yt4M/Zap-Shift-Project.webp",
+        featured: true,
+        techStack: [
+          "Next.js 16",
+          "React 19",
+          "Tailwind CSS",
+          "Framer Motion",
+          "MongoDB",
+          "Node.js",
+          "JWT Authentication",
+          "NextAuth",
+          "Stripe",
+          "Cloudinary",
+          "Nodemailer",
+          "React Hook Form",
+          "React Toastify",
+          "Recharts",
+          "React Leaflet",
+        ],
+        features: [
+          "Role-based authentication system (Admin, Rider, User)",
+          "Email/password and Google/GitHub social authentication",
+          "JWT-based secure authorization",
+          "Parcel booking with automatic cost calculation",
+          "Parcel search, filtering, update, and deletion",
+          "Rider application and admin approval system",
+          "Rider assignment and delivery management workflow",
+          "Stripe payment integration",
+          "Automatic tracking log generation",
+          "Cloudinary profile image upload",
+          "Dedicated dashboards for Admin, Rider, and User",
+        ],
+        roles: [
+          "Admin: Manage users, parcels, riders, assignments, and access admin dashboard",
+          "Rider: Accept/reject deliveries, update pickup and delivery status",
+          "User: Book parcels, make payments, and track delivery progress",
+        ],
+        architecture:
+          "Built with Next.js App Router architecture where frontend pages and backend API route handlers are maintained inside a single application. MongoDB handles data storage while middleware manages authentication and role authorization.",
+        database: [
+          "Users collection - Account information, roles, authentication data",
+          "Parcels collection - Sender, receiver, delivery status, cost, assignment data",
+          "Payments collection - Transaction and payment records",
+          "Riders collection - Rider applications and operational status",
+          "Trackings collection - Delivery tracking history logs",
+        ],
+        authentication:
+          "Hybrid authentication system combining custom JWT authentication with NextAuth social login. Protected routes are secured using middleware-based role validation.",
+        payment:
+          "Integrated Stripe checkout system for secure parcel payments with automated payment confirmation and parcel status updates.",
+        githubLink: "https://github.com/EmonHira135923/Zap-Shift-Project",
+        liveLink: "https://zap-shift-project-sooty.vercel.app/",
+      },
+      {
+        id: "fs-04",
         title: "TravelEase – Vehicle Booking & Trip Management Platform",
         shortDescription:
           "A full-stack vehicle rental platform with booking system, dashboard management, and Firebase authentication.",
@@ -28,7 +238,7 @@ export const PROJECT_CATEGORIES = [
         liveLink: "https://travel-easy-with-ride-sharing.netlify.app/",
       },
       {
-        id: "fs-02",
+        id: "fs-05",
         title: "Kaptain Planet",
         shortDescription:
           "A full-stack platform with role-based dashboards, authentication, and project/blog management.",
@@ -48,7 +258,7 @@ export const PROJECT_CATEGORIES = [
         liveLink: "https://kaptain-planet-client.vercel.app",
       },
       {
-        id: "fs-03",
+        id: "fs-06",
         title: "Hero Kidzz",
         shortDescription:
           "A full-stack single-vendor e-commerce app with authentication, cart, and checkout flow.",
@@ -61,7 +271,7 @@ export const PROJECT_CATEGORIES = [
         liveLink: "https://hero-kids-project.vercel.app",
       },
       {
-        id: "fs-04",
+        id: "fs-07",
         title: "Smart Deals",
         shortDescription:
           "A full-stack marketplace with Firebase authentication, product management, and bidding system.",
